@@ -1,0 +1,96 @@
+/* Styles for Demo Purposes Only */
+
+a {
+    color: #222;
+    text-decoration: none;
+}
+.share-buttons {
+    max-width: 980px;
+    margin: 6% auto 0;
+    text-align: center;
+}
+.share-button {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 .4em .9em;
+}
+.share-button .icon {
+    display: inline-block;
+    vertical-align: middle;
+    height: 44px;
+    padding: 0 .5em;
+    background: #ccc;
+    font-size: 1.5em;
+    line-height: 44px;
+}
+.share-button .count {
+    display: inline-block;
+    vertical-align: middle;
+    height: 44px;
+    padding: 0 .8em;
+    background: #e0e0e0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 44px;
+}
+
+/* Icon Font */
+
+@font-face {
+    font-family: 'Sharrre Icons';
+    src:url('fonts/Sharrre-Icons.eot?-5brwrb');
+    src:url('fonts/Sharrre-Icons.eot?#iefix-5brwrb') format('embedded-opentype'),
+        url('fonts/Sharrre-Icons.woff?-5brwrb') format('woff'),
+        url('fonts/Sharrre-Icons.ttf?-5brwrb') format('truetype'),
+        url('fonts/Sharrre-Icons.svg?-5brwrb#Sharrre-Icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+[class^="icon-share-"], [class*=" icon-share-"] {
+    font-family: 'Sharrre Icons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-share-twitter:before {
+    content: "\e600";
+}
+.icon-share-facebook:before {
+    content: "\e601";
+}
+.icon-share-googleplus:before {
+    content: "\e602";
+}
+.icon-share-pinterest:before {
+    content: "\e603";
+}
+.icon-share-linkedin:before {
+    content: "\e604";
+}
+.icon-share-stumbleupon:before {
+    content: "\e605";
+}
+.icon-share-twitter {
+    *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe600;');
+}
+.icon-share-facebook {
+    *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe601;');
+}
+.icon-share-googleplus {
+    *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe602;');
+}
+.icon-share-pinterest {
+    *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe603;');
+}
+.icon-share-linkedin {
+    *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe604;');
+}
+.icon-share-stumbleupon {
+    *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe605;');
+}

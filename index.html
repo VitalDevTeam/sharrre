@@ -1,106 +1,128 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Sharrre.com</title>
-  <meta name="description" content="Sharrre" />
-  <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
-  <script src="jquery.sharrre-1.3.1.js"></script>
-  <script>
-  $(function(){
-    $('#demo1').sharrre({
-      share: {
-        googlePlus: true,
-        facebook: true,
-        twitter: true,
-        delicious: true
-      },
-      buttons: {
-        googlePlus: {size: 'tall'},
-        facebook: {layout: 'box_count'},
-        twitter: {count: 'vertical'},
-        delicious: {size: 'tall'}
-      },
-      hover: function(api, options){
-        $(api.element).find('.buttons').show();      
-      },
-      hide: function(api, options){
-        $(api.element).find('.buttons').hide();
-      }
-    });
-    
-    $('#demo2').sharrre({
-      share: {
-        googlePlus: true,
-        facebook: true,
-        twitter: true
-      },
-      url: 'http://sharrre.com',
-      enableHover: false
-    });
-  });
-  </script>
-  <style type="text/css">
-  #demo1.sharrre {
-    width:100%;
-    display:inline-block;
-  }
-  #demo2.sharrre {
-    width:50px;
-  }
-  .sharrre .box{
-    float:left;
-  }
-  .sharrre .count {
-    color:#444444;
-    display:block;
-    font-size:17px;
-    line-height:34px;
-    height:34px;
-    padding:4px 0;
-    position:relative;
-    text-align:center;
-    text-decoration:none;
-    width:50px;
-    background-color:#eee;
-    -webkit-border-radius:4px;
-    -moz-border-radius:4px;
-    border-radius:4px; 
-  }
-  .sharrre .share {
-    color:#FFFFFF;
-    display:block;
-    font-size:11px;
-    height:16px;
-    line-height:16px;
-    margin-top:3px;
-    padding:0;
-    text-align:center;
-    text-decoration:none;
-    width:50px;
-    background-color:#9CCE39;
-    -webkit-border-radius:4px;
-    -moz-border-radius:4px;
-    border-radius:4px; 
-  }
-  .sharrre .buttons {
-    display:none;
-    float:left;
-    width:300px;
-  }
-  .sharrre .button {
-    float:left;
-    max-width:50px;
-    height:50px;
-    margin-left:10px;
-  }
-</style>
+    <meta charset="UTF-8" />
+    <title>Sharrre Widget</title>
+    <link rel="stylesheet" href="demo.css">
 </head>
 <body>
-  <h1>Sharrre demo</h1>
-  <div id="demo1" data-title="sharrre" data-url="http://sharrre.com" ></div>
-  <br /><br />
-  <div id="demo2"></div>
+
+    <div class="share-buttons">
+        <span id="share-twitter" class="share-button" data-url="http://google.com/" data-text="Title of Post"></span>
+        <span id="share-facebook" class="share-button" data-url="http://google.com/" data-text="Title of Post"></span>
+        <span id="share-googleplus" class="share-button" data-url="http://google.com/" data-text="Title of Post"></span>
+        <span id="share-linkedin" class="share-button" data-url="http://google.com/" data-text="Title of Post"></span>
+        <span id="share-pinterest" class="share-button" data-url="http://google.com/" data-media="http://placekitten.com/480/320/" data-text="Title of Post"></span>
+        <span id="share-stumbleupon" class="share-button" data-url="http://google.com/" data-text="Title of Post"></span>
+    </div>
+
+<script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+<script src='jquery.sharrre.js'></script>
+<script>
+
+    $('#share-twitter').sharrre({
+        share: {
+            twitter: true
+        },
+        enableHover: false,
+        shorterTotal: true,
+        enableTracking: true,
+        click: function(api, options){
+            api.simulateClick();
+            api.openPopup('twitter');
+        },
+        template: '<a href="#"><span class="icon icon-share-twitter"></span><span class="count" href="#">{total}</span></a>'
+    });
+    $('#share-facebook').sharrre({
+        share: {
+            facebook: true
+        },
+        enableHover: false,
+        shorterTotal: true,
+        enableTracking: true,
+        click: function(api, options){
+            api.simulateClick();
+            api.openPopup('facebook');
+        },
+        template: '<a href="#"><span class="icon icon-share-facebook"></span><span class="count" href="#">{total}</span></a>'
+    });
+    $('#share-googleplus').sharrre({
+        share: {
+            googlePlus: true
+        },
+        urlCurl: 'sharrre.php', // Location of sharrre.php file required
+        enableHover: false,
+        shorterTotal: true,
+        enableTracking: true,
+        click: function(api, options){
+            api.simulateClick();
+            api.openPopup('googlePlus');
+        },
+        template: '<a href="#"><span class="icon icon-share-googleplus"></span><span class="count" href="#">{total}</span></a>'
+    });
+    $('#share-linkedin').sharrre({
+        share: {
+            linkedin: true
+        },
+        enableHover: false,
+        shorterTotal: true,
+        enableTracking: true,
+        click: function(api, options){
+            api.simulateClick();
+            api.openPopup('linkedin');
+        },
+        template: '<a href="#"><span class="icon icon-share-linkedin"></span><span class="count" href="#">{total}</span></a>'
+    });
+    $('#share-pinterest').sharrre({
+        share: {
+            pinterest: true,
+        },
+        buttons: {
+          pinterest: { media: $('#share-pinterest').data('media') }
+        },
+        enableHover: false,
+        shorterTotal: true,
+        enableTracking: true,
+        click: function(api, options){
+            api.simulateClick();
+            api.openPopup('pinterest');
+        },
+        template: '<a href="#"><span class="icon icon-share-pinterest"></span><span class="count" href="#">{total}</span></a>'
+    });
+    $('#share-stumbleupon').sharrre({
+        share: {
+            stumbleupon: true
+        },
+        enableHover: false,
+        shorterTotal: true,
+        enableTracking: true,
+        click: function(api, options){
+            api.simulateClick();
+            api.openPopup('stumbleupon');
+        },
+        template: '<a href="#"><span class="icon icon-share-stumbleupon"></span><span class="count" href="#">{total}</span></a>'
+    });
+
+</script>
+
+<!--
+These buttons have social tracking reports enabled for Google Analytics.
+http://sharrre.com/track-social.html
+
+The code below is only an example of the standard GA snippet.
+Replace with your own before the site's closing BODY tag. -->
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-65432-2']);
+  _gaq.push(['_setDomainName', 'foo.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
 </body>
 </html>
-
